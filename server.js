@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const index = require("./app");
+const bodyParser = require("body-parser");
 require("dotenv").config();
 const app = express();
 
@@ -8,7 +9,7 @@ const port = process.env.PORT || 5000;
 const db_uri = process.env.DATABASE_URI;
 app.use(cors());
 
-app.get("/index" , index);
+app.use("/index" , index);
 app.get('/', (req, res) =>{ //this is a callback fn {
     // res.send(`Hello keepnotes World from ${port}!`);
     res.json({
